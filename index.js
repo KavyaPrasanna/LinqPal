@@ -34,50 +34,9 @@ app.use(function (req, res, next) {
 });
 
 mongoose.connect('mongodb://Kavya:Vihaanvihaan123!@ds261479.mlab.com:61479/heroku_qgzw9vl6', {useNewUrlParser: true, useUnifiedTopology: true });
-// const db = mongoose.connection; mongodb://<dbuser>:<dbpassword>@ds261479.mlab.com:61479/heroku_qgzw9vl6
 mongoose.connection.on('error', err => {
   console.error(err);
 });
-//
-// app.post("/signup", (req, res, next) => {
-//   admin.find({ email: req.body.email })
-//     .exec()
-//     .then(user => {
-//       if (user.length >= 1) {
-//         return res.status(409).json({
-//           message: "Mail exists"
-//         });
-//       } else {
-//         console.log(JSON.stringify(req.body));
-//         bcrypt.hash("tomato", 10, (err, hash) => {
-//           if (err) {
-//             return res.status(500).json({
-//               error: err
-//             });
-//           } else {
-//             const user = new admin({
-//               _id: new mongoose.Types.ObjectId(),
-//               email: req.body.email,
-//               password: hash
-//             });
-//             user.save()
-//               .then(result => {
-//                 console.log(result);
-//                 res.status(201).json({
-//                   message: "User created"
-//                 });
-//               })
-//               .catch(err => {
-//                 console.log(err);
-//                 res.status(500).json({
-//                   error: err
-//                 });
-//               });
-//           }
-//         });
-//       }
-//     });
-// });
 
 app.post('/login', (req, res) => {
   admin.findOne({email : req.body.email}, (err, result) => {
@@ -143,7 +102,6 @@ app.get('/api/externalusers', (req, res) => {
 })
 
 app.post('/externaluser',(req, res) => {
-  console.log("dog "+JSON.stringify(req.body));
   const hash = bcrypt.hashSync(req.body.ssn, 10);
   const newExternalUser = new users({
     first_name: req.body.first_name,
