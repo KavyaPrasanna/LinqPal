@@ -1,0 +1,52 @@
+<div class="container">
+    <h3 class="panel-header">User Form </h3>
+    <div ng-if="successMsg" class="alert alert-success" role="alert">
+      You have been successfully added!
+    </div>
+    <div ng-if="errorMsg" class="alert alert-danger" role="alert">
+      User already exists!
+    </div>
+    <form id = "frm" name="frm"  novalidate>
+      <div class="form-group row">
+        <label for="first_name" class="col-sm-2 col-form-label required">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" name ="first_name" class="form-control" ng-model="first_name" placeholder="First Name" required ng-maxlength="25">
+          <span style="color:red" class="help-inline" ng-show="submitted && frm.first_name.$error.required">Please enter the First Name </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="last_name" class="col-sm-2 col-form-label required">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" name ="last_name" class="form-control" ng-model="last_name" placeholder="Last Name" required ng-maxlength="25">
+          <span style="color:red" class="help-inline" ng-show="submitted && frm.last_name.$error.required">Please enter the Last Name </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="telephone_number" class="col-sm-2 col-form-label required">Telephone Number</label>
+        <div class="col-sm-10">
+          <input type="tel" name ="telephone_number" class="form-control" ng-model="telephone_number" placeholder="Telephone Number"   ng-pattern = "/^[0-9]{10,10}$/" maxlength="10" minlength="10"
+       required>
+          <span style="color:red" class="help-inline" ng-show="submitted && frm.telephone_number.$error.required">Please enter the Telephone Number </span>
+          <span style="color:red" class="help-inline" ng-show="submitted && frm.telephone_number.$error.pattern">Please enter valid Telephone Number </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="address" class="col-sm-2 col-form-label required">Address</label>
+        <div class="col-sm-10">
+          <input type="text" name ="address" class="form-control" ng-model="address" placeholder="Address" required ng-maxlength="25">
+          <span style="color:red" class="help-inline" ng-show="submitted && frm.address.$error.required">Please enter the address </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="ssn" class="col-sm-2 col-form-label required">SSN</label>
+        <div class="col-sm-10">
+          <input type="text" name ="ssn" class="form-control" ng-model="ssn" placeholder="SSN"   ng-pattern = "/^[0-9]{9,9}$/" maxlength="9" minlength="9" required>
+          <span style="color:red" class="help-inline" ng-show="submitted && frm.ssn.$error.required">Please enter the SSN </span>
+          <span style="color:red" class="help-inline" ng-show="submitted && frm.ssn.$error.pattern">Please enter the valid SSN </span>
+        </div>
+      </div>
+      <ul class="pager">
+        <a href="" class="btn btn-success" role="button"  ng-click = "submitted=true;submit()" >Submit</a>
+      </ul>
+  </form>
+</div>

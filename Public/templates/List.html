@@ -1,0 +1,27 @@
+<div id="todoPanel" class="panel" ng-init="getList()">
+    <h3 class="panel-header">List of External Users </h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+          <th>No</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Telephone Number</th>
+          <th>Address</th>
+          <th>SSN</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="item in users">
+            <td>{{$index+1}}</td>
+            <td class="capitalize">{{item.first_name}}</td>
+            <td class="capitalize">{{item.last_name}}</td>
+            <td class="capitalize">{{item.telephone_number}}</td>
+            <td class="capitalize">{{item.address}}</td>
+            <td class="capitalize">{{item.ssn}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

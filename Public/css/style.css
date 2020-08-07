@@ -1,0 +1,11 @@
+ .required:after {
+  content:" *";
+  color: red;
+}
+
+.alignment {
+  align-self: center;
+}
+.capitalize {
+   text-transform: capitalize;
+}
