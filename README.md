@@ -4,12 +4,13 @@ External User Form
 # Stack used
 MEAN stack(MongoDB, ExpressJS, AngularJS, NodeJS)
 
-#Installation
+# Installation
 npm install
 
-#command to start app
+# Command to start app
 node index.js
 
+# About the App
 1. Open browser with URL http://localhost:8088/#!/welcome
 2. Choose Admin or External user option
 3. Choosing Admin takes to Login page. Use these credentials to login
